@@ -6,12 +6,12 @@ from stakeholders.employee import Employee
 leticia = Person('leticia', 'santos', 'female', 28)
 print(leticia)
 print(f"{'*' * 40}")
-print(leticia.get_firstname())
-lastname = leticia.get_lastname()
+print(leticia.firstname)
+lastname = leticia.lastname
 print(lastname)
 print(leticia.full_name)
-leticia.set_lastname("Sequeira")
-print(f"old last name: {lastname}\nnew last name: {leticia.get_lastname()} ")
+leticia.lastname = "Sequeira"
+print(f"old last name: {lastname}\nnew last name: {leticia.lastname} ")
 print(leticia.full_name)  # why does it not change to new last name
 
 # todo: CUSTOMER MODULE (SUBCLASS METHODS)
@@ -24,7 +24,7 @@ print(customer1)
 purchase = customer1.purchase_product('mobile phone')
 # refund_item = carlos.return_product('mobile phone')
 print(customer1)
-first_name = customer1.get_firstname()
+first_name = customer1.firstname
 print(f"{first_name}")
 contact_details = customer1.get_contact_details()
 customer1.set_contact_details('carlos@email.com')
@@ -41,7 +41,7 @@ print(f"{"*" * 40}")
 employee1 = Employee('John', 'Doe', 30, 'Male', 'Software Engineer', 60000, 'Engineering')
 print(employee1)
 print(f"Employee ID: {employee1.get_employee_id()}")
-print(f"Name: {employee1.get_firstname()} {employee1.get_lastname()}")
+print(f"Name: {employee1.firstname} {employee1.lastname}")
 print(f"{"*" * 40}")
 
 # updating employee details
@@ -52,7 +52,7 @@ print(f"{"*" * 40}")
 employee2 = Employee('Jane', 'Smith', 35, 'Female', 'Project Manager', 80000, 'Management')
 print(employee2)
 # retrieve data
-print(f"Name: {employee2.get_firstname()} {employee2.get_lastname()}")
+print(f"Name: {employee2.firstname} {employee2.lastname}")
 print(f"Salary: {employee2.get_salary()}")
 # Updating employee details
 department = employee2.get_department()

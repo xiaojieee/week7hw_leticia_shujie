@@ -49,6 +49,6 @@ class Employee(Person):
         return True
 
     def __str__(self):
-        return (f"{'*' * 25}\nEMPLOYEE ID: {self.employee_id}\nFirst Name: {self.get_firstname()}\n"
-                f"Last Name: {self.get_lastname()}\nJob Role: {self.get_job_role()}\n"
+        return (f"{'*' * 25}\nEMPLOYEE ID: {self.employee_id}\nFirst Name: {self.firstname}\n"
+                f"Last Name: {self.lastname}\nJob Role: {self.get_job_role()}\n"
                 f"Department: {self.get_department()}Salary: {self.get_salary()}\n{'*' * 25}")
