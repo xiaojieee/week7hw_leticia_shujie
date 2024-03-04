@@ -1,4 +1,3 @@
-<<<<<<< leticia_branch
 from accounts.account import Account
 
 # print(dir(Account))
@@ -125,7 +124,7 @@ print(marge_account.get_bank_name())
 bart_account.set_bank_name("National Skateboard Bank")
 print(marge_account.get_bank_name())
 
-=======
+
 from account import Account
 
 
@@ -155,4 +154,3 @@ print(marge_account)
 
 bart_account = Account("Bart", "Simpson", 100)
 print(bart_account)
->>>>>>> leticia_branch
