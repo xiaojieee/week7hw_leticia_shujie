@@ -13,3 +13,7 @@ class BondAccount(Account):
             raise MaximumBalanceBreachedException(self._balance + amount - self._maximum_balance)
         else:
             self._balance += amount
+
+        # if the balance + amount deposited is larger than the maximum balance allowed
+        # raise the exception and work out how much it is over
+        # else, deposit the amount to the account

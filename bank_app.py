@@ -1,31 +1,29 @@
-import sys
+from account import Account
 
-from bond_account import BondAccount
-from maximum_balance_breached_exception import MaximumBalanceBreachedException
 
-# try block is what we want the code to do
-try:
-    lisa_bond_account = BondAccount("lisa", "Simpson", 500, 1000)
-    print(lisa_bond_account)
-    lisa_bond_account.deposit(900)
-    print(lisa_bond_account)
+# with @classmethod no instance of the Account class needs to be made before setting a bank name
+Account.set_bank_name("Hello Bank!")
+print(f"Welcome to {Account.get_bank_name()}")
 
-    lisa_bond_account.withdraw(25)
-    print(lisa_bond_account)
+lisa_account = Account("Lisa", "Simpson", 100)
+print(lisa_account)
+print(lisa_account.get_bank_name())
+print(lisa_account.get_customer_id())
 
-    lisa_bond_account.withdraw(10)
-#     toggle between 10 and 100
+print(dir(Account))
 
-# except is a catch block
-except MaximumBalanceBreachedException as ex:
-    print("@" * 10)
-    print(f"An exception has occurred!")
-    print(f"You would have breached your minimum balance by {ex.get_breach_amount()}")
+marge_account = Account("Marge", "Simpson", 500)
+print(marge_account)
+print(marge_account.firstname)
+print(marge_account.lastname)
+# with property decorators, no need to use 'get'
 
-else:
-    print("no exception occurred")
+# with the @property.setter in place, can now set names using assignment operator - equal sign
+marge_account.lastname = "Bouvier"
+print(marge_account)
 
-# the final block will always print
-finally:
-    print("The FINALLY block always runs")
-    print(lisa_bond_account)
+marge_account.firstname = "Margorie"
+print(marge_account)
+
+bart_account = Account("Bart", "Simpson", 100)
+print(bart_account)
