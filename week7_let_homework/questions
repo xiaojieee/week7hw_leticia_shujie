@@ -1,0 +1,17 @@
+Inheritence:
+class Employee(Person, Customer):
+
+    # CONSTRUCTOR METHOD THAT CONTAINS THE ATTRIBUTES (DATA) OF SUBCLASS
+    def __init__(self, firstname, lastname, age, gender, job_role, salary, employee_id, pin, account_number):
+        # super function makes the subclass inherit all the methods and properties from superclass
+        super().__init__(firstname, lastname, age, gender, account_number)
+        # todo: complete attributes
+        self.job_role = job_role
+        self.__salary = salary
+        self.employee_id = employee_id
+        self.employee_pin = pin
+
+
+****   TypeError: Cannot create a consistent method resolution  order (MRO) for bases Person, Customer ***
+    *** Can be done but it is not clean code ***
+    *** MRO - Maintenance Repair and Operations ***
