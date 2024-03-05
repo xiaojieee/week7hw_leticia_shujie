@@ -9,7 +9,7 @@ class Person:
     # could I have date of birth ()
     # read more about the self so I can remember the importance of it. 
     def __init__(self, firstname, lastname, gender, age):
-        self.first_name = firstname
+        self._first_name = firstname
         self.__last_name = lastname
         self._gender = gender
         self.__age = age
@@ -21,7 +21,7 @@ class Person:
     # @propert is used to define a method that acts as a "getter" for an attribute
     @property
     def first_name(self):
-        return self.first_name.capitalize()
+        return self._first_name.capitalize()
 
     @property
     def lastname(self):
@@ -38,7 +38,7 @@ class Person:
     # defines a setter for the attribute
     @first_name.setter
     def first_name(self, firstname):
-        self.first_name = firstname
+        self._first_name = firstname
 
     @lastname.setter
     def lastname(self, lastname):
