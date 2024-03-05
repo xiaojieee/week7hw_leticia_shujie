@@ -25,4 +25,3 @@ else:
 # the final block will always print
 finally:
     print("The FINALLY block always runs \n------------------------")
-    print(lisa_bond_account)
