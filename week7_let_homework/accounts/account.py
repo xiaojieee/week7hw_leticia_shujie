@@ -1,5 +1,9 @@
+import random
+from week7_let_homework.accounts.insufficient_funds_exception import InsufficientFundsException
 # this is our capsule
 # it's a collection of attributes and methods
+# a class is an empty template that contains attributes and methods that can be used in objects
+# ENCAPSULATION - class is an example as all data that is a member functions, varibles are encapsulated
 class Account:
     # variables or objects we put in class level are shared across the objects of that class
     # both pieces of data are accessible through the class
@@ -19,18 +23,29 @@ class Account:
         # double underscore means fully private
         self.__last_name = lastname
         self._account_holder_name = firstname + " " + lastname
+        self._account_number = self.generate_account_number()  # Assigning unique account number
 
         # class field
         Account.numCreated += 1
 
-    # method
+    def generate_account_number(self):
+        # Incrementing the total number of accounts created
+        account_number = Account.numCreated + 1
+        # Generating a random string of six digits
+        # https://blog.finxter.com/python-how-to-generate-a-random-number-with-a-specific-amount-of-digits/
+        # stringifies random integers from 0 - - to use string join function to get one string in 6 digits
+        random_digits = ''.join(str(random.randint(0, 9)) for _ in range(7))
+        # Combining the account number and random digits
+        return f"{account_number}{random_digits}"
+
     def deposit(self, amount):
         self._balance += amount
 
-    # method
     def withdraw(self, amount):
         # validation
-        if amount >= 0:
+        if self._balance - amount < 0:
+            raise InsufficientFundsException
+        else:
             self._balance -= amount
     #   else situation we would raise an exception
 
@@ -63,8 +78,8 @@ class Account:
     # overriding a built-in method
     # override when inheriting from something and already exists, just changing the implementation of something
     def __str__(self):
-        return f"Account\nFirstname: {self.get_firstname()}\nLastname: {self.get_lastname()}" \
-               f"\nBalance: ${self.get_balance()}\n********************"
+        return (f"Account no: {self._account_number}\nFirstname: {self.get_firstname()}\n"
+               f"Lastname: {self.get_lastname()}\nBalance: ${self.get_balance()}\n{'*' * 30}")
 
     # operator overloading
     def __add__(self, other):
@@ -76,18 +91,15 @@ class Account:
     def __lt__(self, other):
         return self._balance < other.get_balance()
 
-    def __eq__(self, other):
-        return self.get_balance() == other.get_balance()
+        #     PROPERTIES
 
-    #     PROPERTIES
-
-    # @property
-    # def mday(self):
-    #     return self._day
-    #
-    # @mday.setter
-    # def mday(self, day):
-    #     self._day = day
+        # @property
+        # def mday(self):
+        #     return self._day
+        #
+        # @mday.setter
+        # def mday(self, day):
+        #     self._day = day
 
     @property
     def account_holder_name(self):
@@ -102,7 +114,10 @@ class Account:
 
     #     CLASS Methods
     # retrieves the name of the bank is
-    @classmethod  # these are decorators
+    # decorator - extra functions (wrapping something around it)
+    # this shared piece of code which can be accessed from the class
+    # cls = class object parameter
+    @classmethod  # these are decorators (annotations)
     def get_bank_name(cls):
         return cls.__bank_name
 
@@ -110,3 +125,4 @@ class Account:
     @classmethod
     def set_bank_name(cls, name):
         cls.__bank_name = name
+

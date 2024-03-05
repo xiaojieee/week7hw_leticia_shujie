@@ -6,7 +6,7 @@ from stakeholders.employee import Employee
 leticia = Person('leticia', 'santos', 'female', 28)
 print(leticia)
 print(f"{'*' * 40}")
-print(leticia.firstname)
+print(leticia.first_name)
 lastname = leticia.lastname
 print(lastname)
 print(leticia.full_name)
@@ -24,7 +24,7 @@ print(customer1)
 purchase = customer1.purchase_product('mobile phone')
 # refund_item = carlos.return_product('mobile phone')
 print(customer1)
-first_name = customer1.firstname
+first_name = customer1.first_name
 print(f"{first_name}")
 contact_details = customer1.get_contact_details()
 customer1.set_contact_details('carlos@email.com')
@@ -35,29 +35,33 @@ print(f"Total amount of Customers: {Customer.numCreated}")
 print(customer1.isEmployee())
 print(customer1.isCustomer())
 print(f"{"*" * 40}")
+
+# check if the same object references
+
+
 # todo: EMPLOYEE MODULE (SUBCLASS METHOD)
 
 # Creating instances of employees
 employee1 = Employee('John', 'Doe', 30, 'Male', 'Software Engineer', 60000, 'Engineering')
 print(employee1)
-print(f"Employee ID: {employee1.get_employee_id()}")
-print(f"Name: {employee1.firstname} {employee1.lastname}")
+print(f"Employee ID: {employee1._employee_id}")
+print(f"Name: {employee1.first_name} {employee1.lastname}")
 print(f"{"*" * 40}")
 
 # updating employee details
-salary = employee1.get_salary()
-employee1.set_salary(65000)
-print(f"Employee old salart {salary} and new salary {employee1.get_salary()}")
+salary = employee1.salary
+employee1.salary = 65000
+print(f"Employee old salary {salary} and new salary {employee1.salary}")
 print(f"{"*" * 40}")
 employee2 = Employee('Jane', 'Smith', 35, 'Female', 'Project Manager', 80000, 'Management')
 print(employee2)
 # retrieve data
-print(f"Name: {employee2.firstname} {employee2.lastname}")
-print(f"Salary: {employee2.get_salary()}")
+print(f"Name: {employee2.first_name} {employee2.lastname}")
+print(f"Salary: {employee2.salary}")
 # Updating employee details
-department = employee2.get_department()
-employee2.set_department('Human Resources')
-print(f"old department {department} and new department {employee2.get_department()}")
+department = employee2._department
+employee2.department = 'Human Resources'
+print(f"old department {department} and new department {employee2._department}")
 print(f"{"*" * 40}")
 # Checking if objects are instances of Employee class
 print(f"Is employee1 an Employee? {employee1.isEmployee()}")

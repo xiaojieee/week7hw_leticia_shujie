@@ -1,15 +1,25 @@
-Inheritence:
+
+
+PROPERTIES
+What is the reason we decide to use decorators rather than method itself?
+Can you use a setter without having property decorator? Or is it that you always set to get?
+
+
+INHERITANCE
+Struggles - understanding the two hats as a client and developer when implementing functionality into a class
+Example - say that we need to derived classes to talk to each other. For example, I want the employee to be able to
+check customer and items bought. Would I build a functionality inside it or leave it.
+Inheritence:is it because there is always one baseclass that can exist?
 class Employee(Person, Customer):
 
     # CONSTRUCTOR METHOD THAT CONTAINS THE ATTRIBUTES (DATA) OF SUBCLASS
     def __init__(self, firstname, lastname, age, gender, job_role, salary, employee_id, pin, account_number):
         # super function makes the subclass inherit all the methods and properties from superclass
         super().__init__(firstname, lastname, age, gender, account_number)
-        # todo: complete attributes
         self.job_role = job_role
         self.__salary = salary
         self.employee_id = employee_id
-        self.employee_pin = pin
+        self.employee_pin = pin # begin to understand something here. May not need pin?
 
 
 ****   TypeError: Cannot create a consistent method resolution  order (MRO) for bases Person, Customer ***

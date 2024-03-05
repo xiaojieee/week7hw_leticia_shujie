@@ -1,4 +1,4 @@
-from stakeholders.person import Person
+from week7_let_homework.stakeholders.person import Person
 
 
 # Superclass (Person) is passed as a parameter in Customer class
@@ -61,6 +61,6 @@ class Customer(Person):
 
     def __str__(self):
         return (
-            f"{'*' * 25}\nCUSTOMER ID: {self.customer_id}\nFirst Name: {self.firstname}\nLast Name: {self.lastname}"
+            f"{'*' * 25}\nCUSTOMER ID: {self.customer_id}\nFirst Name: {self.first_name}\nLast Name: {self.lastname}"
             f"\nAge: {self.age}\nContact Details: {self.get_contact_details()}\n"
             f"Purchases: {self.get_product_list()}\n{'*' * 25}")
