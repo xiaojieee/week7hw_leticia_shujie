@@ -17,9 +17,10 @@ class Person:
 
         Person.numCreated += 1
 
-
+    # decorators allow you to define getter and setter for class attributes without explicitly calling them
+    # @propert is used to define a method that acts as a "getter" for an attribute
     @property
-    def firstname(self):
+    def first_name(self):
         return self.first_name.capitalize()
 
     @property
@@ -34,16 +35,15 @@ class Person:
     def gender(self):
         return self._gender
 
-    # TODO: GETTERS
-    @firstname.setter
-    def firstname(self, firstname):
+    # defines a setter for the attribute
+    @first_name.setter
+    def first_name(self, firstname):
         self.first_name = firstname
 
     @lastname.setter
     def lastname(self, lastname):
         self.__last_name = lastname
 
-    # squiggly line
     # can you set what you can't get? Ask Victories if cannot find answer
     @gender.setter
     def gender(self, gender):
@@ -63,4 +63,3 @@ class Person:
     def __str__(self):
         return (f"First Name: {self.first_name}\nLast Name: {self.__last_name}"
                 f"\nAge: {self.__age}\nGender: {self._gender}\n")
-

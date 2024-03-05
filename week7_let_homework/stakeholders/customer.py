@@ -1,4 +1,4 @@
-from stakeholders.person import Person
+from week7_let_homework.stakeholders.person import Person
 
 
 # Superclass (Person) is passed as a parameter in Customer class

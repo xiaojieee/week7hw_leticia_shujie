@@ -35,6 +35,10 @@ print(f"Total amount of Customers: {Customer.numCreated}")
 print(customer1.isEmployee())
 print(customer1.isCustomer())
 print(f"{"*" * 40}")
+
+# check if the same object references
+
+
 # todo: EMPLOYEE MODULE (SUBCLASS METHOD)
 
 # Creating instances of employees
